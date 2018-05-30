@@ -1,109 +1,150 @@
 import * as React from 'react';
 import { Div, Button, H2, H3 } from 'glamorous';
-import { root, fullContentWidthStyle, fullContentHeightStyle, noMarginTopStyle, dismissibleStyle, fullContentHeightBottomStyle, dismissCardButton, headingContainer, hidden, heading, subheading, content, noBorderBottomStyle, extraMarginBottom, footerContainer, info, footerStyle } from './cardStyles';
 import { CloseIcon } from '../../assets/CloseIcon';
 import { CSSPropertiesRecursive } from 'glamorous/typings/css-properties';
 import { Colors } from '../../styles/Colors';
+import styles from './cardStyles';
+import { InfoIcon } from '../../assets/InfoIcon';
 
 interface CardProps extends React.HTMLProps<HTMLDivElement> {
   readonly title?: string,
   readonly subtitle?: string | React.ReactNode,
   readonly mobileTitleHidden?: boolean,
-  readonly noBorderBottom?: boolean,
   readonly footer?: string,
-  readonly className?: string,
-  readonly fullContentWidth?: boolean,
-  readonly fullContentHeight?: boolean,
-  readonly fullContentHeightBottom?: boolean,
+  readonly fullWidth?: boolean,
+  readonly fullHeight?: boolean,
+  readonly noPaddingBottom?: boolean,
   readonly noMarginTop?: boolean,
-  readonly bottomCard?: boolean,
+  readonly isBottom?: boolean,
   readonly dismissible?: boolean,
-  readonly height?: number,
   onClose?(): void,
-  readonly hideCloseButton?: boolean,
 }
 
-export const Card = (props: CardProps) => {
-  const {
-    children,
-    title,
-    subtitle,
-    mobileTitleHidden,
-    noBorderBottom,
-    footer,
-    fullContentWidth,
-    fullContentHeight,
-    fullContentHeightBottom,
-    bottomCard,
-    noMarginTop,
-    dismissible,
-    height,
-    onClose,
-    hideCloseButton,
-    ...otherProps
-  } = props;
+interface CardState {
+  readonly height: number | undefined
+}
 
-  const css: CSSPropertiesRecursive = [
-    root,
-    fullContentWidth ? fullContentWidthStyle : {},
-    fullContentHeight ? fullContentHeightStyle : {},
-    fullContentHeightBottom ? fullContentHeightBottomStyle : {},
-    noMarginTop ? noMarginTopStyle : {},
-    dismissible ? dismissibleStyle : {}
-  ];
+export class Card extends React.Component<CardProps, CardState> {
+  private cardRef: HTMLDivElement | null = null;
 
-  const headingClass: CSSPropertiesRecursive = [
-    headingContainer,
-    mobileTitleHidden ? hidden : {},
-    noBorderBottom ? noBorderBottomStyle : {}
-  ];
+  constructor(props) {
+    super(props);
+    this.state = { height: undefined };
+  }
 
-  const contentClass: CSSPropertiesRecursive = [
-    content,
-    fullContentWidth ? fullContentWidthStyle : {},
-    fullContentHeight ? fullContentHeightStyle : {},
-    noBorderBottom ? noBorderBottomStyle : {}
-  ]
+  componentDidMount() {
+    this.getCardHeight();
+  }
 
-  const footerClass: CSSPropertiesRecursive = [
-    footerContainer,
-    bottomCard ? extraMarginBottom : {}
-  ]
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== this.props) {
+      this.getCardHeight();
+    }
+  }
 
-  return (
-    <Div css={css} {...otherProps}>
-      {(dismissible && !hideCloseButton) &&
-        <Button css={dismissCardButton} onClick={onClose}>
-          <CloseIcon fill={Colors.SkBlue} />
-        </Button>
-      }
-      {(title || subtitle) &&
-        <>
-          <Div css={headingClass}>
-            {title &&
-              <H2 css={heading}>
-                <div dangerouslySetInnerHTML={{ __html: title }} />
-              </H2>
+  private getCardHeight = () => {
+    if (this.cardRef) {
+      this.setState({ height: this.cardRef.clientHeight });
+    }
+  }
+
+  private onHide = () => {
+    this.setState({ height: 0 });
+    if (this.props.onClose) {
+      this.props.onClose();
+    }
+  }
+
+  render() {
+    const {
+      children,
+      title,
+      subtitle,
+      mobileTitleHidden,
+      footer,
+      fullWidth,
+      fullHeight,
+      noPaddingBottom,
+      isBottom,
+      noMarginTop,
+      dismissible,
+      onClose,
+      ...otherProps
+    } = this.props;
+
+    const cardContainer: CSSPropertiesRecursive = [
+      styles.cardContainer,
+      noMarginTop ? styles.noMarginTop : {},
+    ];
+
+    const card: CSSPropertiesRecursive = [
+      styles.card,
+      fullWidth ? styles.fullWidth : {},
+      fullHeight ? styles.fullHeight : {},
+      noPaddingBottom ? styles.noPaddingBottom : {},
+      dismissible ? styles.dismissible : {}
+    ];
+
+    const headingClass: CSSPropertiesRecursive = [
+      styles.headingContainer,
+      mobileTitleHidden ? styles.hidden : {}
+    ];
+
+    const contentClass: CSSPropertiesRecursive = [
+      styles.content,
+      fullWidth ? styles.fullWidth : {},
+      fullHeight ? styles.fullHeight : {},
+    ]
+
+    const footerClass: CSSPropertiesRecursive = [
+      styles.footerContainer,
+      isBottom ? styles.extraMarginBottom : {}
+    ]
+
+    return (
+      <>
+        <Div css={cardContainer} style={{ height: this.state.height }}>
+          <Div css={card} {...otherProps} innerRef={(ref: HTMLDivElement) => { this.cardRef = ref }}>
+            {dismissible &&
+              <Button css={styles.dismissCardButton} onClick={this.onHide}>
+                <CloseIcon fill={Colors.SkBlue} />
+              </Button>
             }
-            {subtitle &&
-              <H3 css={subheading}>
-                <div>{subtitle}</div>
-              </H3>
+            {(title || subtitle) &&
+              <>
+                <Div css={headingClass}>
+                  {title &&
+                    <H2 css={styles.heading}>
+                      <div dangerouslySetInnerHTML={{ __html: title }} />
+                    </H2>
+                  }
+                  {subtitle &&
+                    <H3 css={styles.subheading}>
+                      <div>{subtitle}</div>
+                    </H3>
+                  }
+                </Div>
+                <span key="spacer" />
+              </>
             }
-          </Div>
-          <span key="spacer" />
-        </>
-      }
-      <Div css={contentClass}>
-        {children}
-      </Div>
-      {footer &&
-        <Div css={footerClass}>
-          <Div css={info} />
-          <Div css={footerStyle}>
-            {footer}
+            <Div css={contentClass}>
+              {children}
+            </Div>
           </Div>
         </Div>
-      }
-    </Div>)
+
+        {footer &&
+          <Div css={footerClass}>
+            <Div css={styles.info}><InfoIcon /></Div>
+            <Div css={styles.footer}>
+              {footer}
+            </Div>
+          </Div>
+        }
+
+      </>
+    )
+
+  }
+
 };

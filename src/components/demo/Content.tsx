@@ -13,8 +13,8 @@ export const Content = glamorous.div<Props>(
       alignItems: 'center',
       justifyContent: 'center',
       height: height || 200,
-      color: Colors.SkCharcoal,
-      backgroundColor: lighten(0.7, Colors.SkcgGrape)
+      color: Colors.SkBlue,
+      backgroundColor: lighten(0.6, Colors.SkBlue)
     }
   }
 )

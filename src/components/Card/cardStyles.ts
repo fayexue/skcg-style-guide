@@ -8,21 +8,19 @@ import { MediaQueries } from '../../styles/MediaQueries';
 import { Types } from '../../styles/Types';
 import { Fonts } from '../../styles/Fonts';
 
-const rootMargin = multiply(Layout.GridRowHeight, 3.2);
-const rootMarginMobile = multiply(Layout.GridRowHeight, 2.5);
+const cardContainerMargin = multiply(Layout.GridRowHeight, 3.2);
+const cardContainerMarginMobile = multiply(Layout.GridRowHeight, 2.5);
 
-export const root: CSSPropertiesRecursive = {
+const cardContainer: CSSPropertiesRecursive = {
+  transition: 'height 0.5s ease-out',
+  overflow: 'hidden',
   backgroundColor: Colors.SkWhite,
   maxWidth: Layout.GridContainerWidth,
-  margin: `${rootMargin} auto`,
-  paddingTop: multiply(Layout.GridRowHeight, 4),
-  paddingBottom: multiply(Layout.GridRowHeight, 5),
+  margin: `${cardContainerMargin} auto`,
   boxShadow: `0 1px 0 0 ${Colors.SkGreyMedium}`,
 
   [MediaQueries.XsMax]: {
-    margin: `${rootMarginMobile} auto`,
-    paddingTop: Layout.GridRowHeight,
-    paddingBottom: multiply(Layout.GridRowHeight, 3),
+    margin: `${cardContainerMarginMobile} auto`,
   },
 
   '&:first-child': {
@@ -34,31 +32,40 @@ export const root: CSSPropertiesRecursive = {
   }
 }
 
-export const dismissibleStyle: CSSPropertiesRecursive = {
-  position: 'relative',
-  transition: 'height 0.5s ease-out',
-  overflow: 'hidden',
+const noMarginTop: CSSPropertiesRecursive = {
+  marginTop: 0,
 }
 
-export const fullContentWidthStyle: CSSPropertiesRecursive = {
+const card: CSSPropertiesRecursive = {
+  paddingTop: multiply(Layout.GridRowHeight, 4),
+  paddingBottom: multiply(Layout.GridRowHeight, 5),
+
+  [MediaQueries.XsMax]: {
+    paddingTop: Layout.GridRowHeight,
+    paddingBottom: multiply(Layout.GridRowHeight, 3),
+  },
+}
+
+const dismissible: CSSPropertiesRecursive = {
+  position: 'relative',
+}
+
+const fullWidth: CSSPropertiesRecursive = {
+  maxWidth: 'inherit',
   paddingLeft: 0,
   paddingRight: 0,
 }
 
-export const fullContentHeightStyle: CSSPropertiesRecursive = {
+const fullHeight: CSSPropertiesRecursive = {
   paddingTop: 0,
   paddingBottom: 0,
 }
 
-export const fullContentHeightBottomStyle: CSSPropertiesRecursive = {
+const noPaddingBottom: CSSPropertiesRecursive = {
   paddingBottom: 0,
 }
 
-export const noMarginTopStyle: CSSPropertiesRecursive = {
-  marginTop: 0,
-}
-
-export const dismissCardButton: CSSPropertiesRecursive = {
+const dismissCardButton: CSSPropertiesRecursive = {
   position: 'absolute',
   top: Layout.GridRowHeight,
   right: Layout.GridGutterWidth,
@@ -78,7 +85,7 @@ export const dismissCardButton: CSSPropertiesRecursive = {
   lineHeight: 1
 };
 
-export const headingContainer: CSSPropertiesRecursive = {
+const headingContainer: CSSPropertiesRecursive = {
   padding: `0 0 ${multiply(Layout.GridRowHeight, 3.5)}`,
 
   [MediaQueries.XsMax]: {
@@ -87,7 +94,7 @@ export const headingContainer: CSSPropertiesRecursive = {
   }
 };
 
-export const heading: CSSPropertiesRecursive = {
+const heading: CSSPropertiesRecursive = {
   ...Types.HeadingDesktop,
 
   color: Colors.SkCharcoal,
@@ -107,7 +114,7 @@ export const heading: CSSPropertiesRecursive = {
   }
 };
 
-export const subheading: CSSPropertiesRecursive = {
+const subheading: CSSPropertiesRecursive = {
   ...Types.Content,
   maxWidth: Layout.GridContentWidth,
   margin: `${multiply(Layout.GridRowHeight, 3.5)} auto 0`,
@@ -121,11 +128,7 @@ export const subheading: CSSPropertiesRecursive = {
   }
 }
 
-export const noBorderBottomStyle: CSSPropertiesRecursive = {
-  borderBottom: 0
-};
-
-export const content: CSSPropertiesRecursive = {
+const content: CSSPropertiesRecursive = {
   maxWidth: add(Layout.GridContentWidth, multiply(Layout.GridGutterWidth, 4)),
   margin: '0 auto',
 
@@ -134,10 +137,10 @@ export const content: CSSPropertiesRecursive = {
   }
 };
 
-export const footerContainer: CSSPropertiesRecursive = {
+const footerContainer: CSSPropertiesRecursive = {
   display: 'flex',
   maxWidth: Layout.GridContainerWidth,
-  margin: `${multiply(Layout.GridRowHeight, -2)} auto (-${Layout.GridRowHeight})`,
+  margin: `${multiply(Layout.GridRowHeight, -2)} auto -${Layout.GridRowHeight}`,
 
   [MediaQueries.XsMax]: {
     marginTop: `-${Layout.GridRowHeight}`,
@@ -147,11 +150,7 @@ export const footerContainer: CSSPropertiesRecursive = {
   }
 };
 
-export const extraMarginBottom: CSSPropertiesRecursive = {
-  marginBottom: 70
-};
-
-export const footerStyle: CSSPropertiesRecursive = {
+const footer: CSSPropertiesRecursive = {
   fontSize: Fonts.Size.Detail,
   marginTop: 'auto',
   marginBottom: 'auto',
@@ -163,11 +162,17 @@ export const footerStyle: CSSPropertiesRecursive = {
   }
 };
 
-export const info: CSSPropertiesRecursive = {
+const extraMarginBottom: CSSPropertiesRecursive = {
+  marginBottom: 70
+};
+
+const info: CSSPropertiesRecursive = {
+  display: 'flex',
+  alignItems: 'center',
   paddingRight: '10px'
 };
 
-export const hidden: CSSPropertiesRecursive = {
+const hidden: CSSPropertiesRecursive = {
   [MediaQueries.XsMax]: {
     display: 'none',
     visibility: 'hidden'
@@ -179,7 +184,7 @@ const fadeInLoading = glamor.keyframes({
   '100%': { opacity: 1 }
 })
 
-export const skeleton: CSSPropertiesRecursive = {
+const skeleton: CSSPropertiesRecursive = {
   margin: `${multiply(Layout.GridRowHeight, 2)} 0`,
   animation: `${fadeInLoading} ease-in 1`,
   animationDuration: '0.25s',
@@ -191,3 +196,26 @@ export const skeleton: CSSPropertiesRecursive = {
     marginBottom: 0
   }
 };
+
+const styles = {
+  cardContainer,
+  noMarginTop,
+  card,
+  dismissible,
+  dismissCardButton,
+  fullWidth,
+  fullHeight,
+  noPaddingBottom,
+  headingContainer,
+  heading,
+  subheading,
+  content,
+  footerContainer,
+  footer,
+  extraMarginBottom,
+  info,
+  hidden,
+  skeleton
+}
+
+export default styles;

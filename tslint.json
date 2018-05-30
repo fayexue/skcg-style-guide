@@ -31,7 +31,7 @@
         // immutable rules 
         "no-var-keyword": true,
         "no-let": true,
-        "readonly-keyword": true,
+        "readonly-keyword": false,
         "readonly-array": true
 
     },
