@@ -1,0 +1,39 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-immutable"
+    ],
+    "jsRules": {},
+    "rules": {
+        "one-line": false,
+        "no-empty": false,
+        "space-before-function-paren": false,
+        "space-between-function-paren": false,
+        "only-arrow-functions": false,
+        "no-console": false,
+        "object-literal-key-quotes": false,
+        "member-access": [true, "no-public"],
+        "eofline": false,
+        "quotemark": false,
+        "trailing-comma": false,
+        "no-empty-interface": false,
+        "interface-name": [true, "never-prefix"],
+        "ordered-imports": false,
+        "semicolon": false,
+        "comment-format": false,
+        "no-trailing-whitespace": false,
+        "arrow-parens": false,
+        "object-literal-sort-keys": false,
+        "max-line-length": false,
+        "triple-equals": [true, "allow-undefined-check"],
+        "member-ordering": false,
+        // immutable rules 
+        "no-var-keyword": true,
+        "no-let": true,
+        "readonly-keyword": true,
+        "readonly-array": true
+
+    },
+    "rulesDirectory": []
+}
