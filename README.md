@@ -1,0 +1,1 @@
+# skcg-style-guide
