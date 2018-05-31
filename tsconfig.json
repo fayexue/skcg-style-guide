@@ -6,7 +6,6 @@
         "module": "commonjs",
         "moduleResolution": "node",
 
-
         "strict": true,
 
         "noUnusedLocals": true,
@@ -14,14 +13,14 @@
         "noImplicitAny": false,
 
         "skipLibCheck": true,
-        "baseUrl": "./src",
-        "outDir": "build",
+        "outDir": "./lib",
         "lib": [
             "es6",
             "es7",
             "dom"
         ],
         "typeRoots": [
+            "index.d.ts",
             "./node_modules/@types"
         ],
         "plugins": [{
@@ -32,6 +31,10 @@
         "forkChecker": true,
         "useWebpackText": true
     },
+    "include": [
+        "./src/**/*.tsx",
+        "./src/**/*.ts"
+    ],
     "exclude": [
         "dist",
         "build",

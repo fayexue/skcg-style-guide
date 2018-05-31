@@ -30,7 +30,7 @@
         "member-ordering": false,
         // immutable rules 
         "no-var-keyword": true,
-        "no-let": true,
+        "prefer-const": true,
         "readonly-keyword": false,
         "readonly-array": true
 

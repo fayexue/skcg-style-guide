@@ -1,0 +1,5 @@
+src
+lib/**/*.stories.js
+lib/**/*.stories.js.map
+lib/components/demo
+.storybook

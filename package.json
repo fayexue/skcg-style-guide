@@ -1,17 +1,16 @@
 {
   "name": "skcg-style-guide",
-  "version": "1.0.0",
-  "private": true,
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.10",
+  "description": "test",
+  "main": "./lib/index.js",
   "scripts": {
-    "lint": "yarn run tslint \"src/**/*.ts\"",
     "rimraf": "rimraf",
     "tslint": "tslint",
+    "lint": "tslint -c tslint.json --project tsconfig.json",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "rm -rf build && tsc",
+    "build": "rm -rf ./lib && tsc",
     "prepare": "yarn lint && yarn build"
   },
   "license": "MIT",
@@ -50,5 +49,17 @@
     "polished": "^1.9.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fayexue/skcg-style-guide.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/fayexue/skcg-style-guide/issues"
+  },
+  "homepage": "https://github.com/fayexue/skcg-style-guide#readme"
 }
