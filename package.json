@@ -1,6 +1,6 @@
 {
   "name": "skcg-style-guide",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "test",
   "main": "./lib/index.js",
   "scripts": {
