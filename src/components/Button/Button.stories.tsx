@@ -6,7 +6,7 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs/react';
 
 import Button from './Button';
 
-storiesOf('ui/Button', module)
+storiesOf('ui', module)
   .addDecorator(withKnobs)
   .add('buttons', withInfo()(() =>
     <Button

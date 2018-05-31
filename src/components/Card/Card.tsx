@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Div, Button, H2, H3 } from 'glamorous';
+import { css } from 'glamor';
+import { Div, Button } from 'glamorous';
 import { CloseIcon } from '../../assets/CloseIcon';
-import { CSSPropertiesRecursive } from 'glamorous/typings/css-properties';
 import { Colors } from '../../styles/Colors';
 import styles from './cardStyles';
 import { InfoIcon } from '../../assets/InfoIcon';
+import { Heading } from '../typography/Heading';
+import { Subheading } from '../typography/Subheading';
 
 interface CardProps extends React.HTMLProps<HTMLDivElement> {
   readonly title?: string,
@@ -72,39 +74,39 @@ class Card extends React.Component<CardProps, CardState> {
       ...otherProps
     } = this.props;
 
-    const cardContainer: CSSPropertiesRecursive = [
+    const cardContainer = css(
       styles.cardContainer,
       noMarginTop ? styles.noMarginTop : {},
-    ];
+    );
 
-    const card: CSSPropertiesRecursive = [
+    const card = css(
       styles.card,
-      fullWidth ? styles.fullWidth : {},
-      fullHeight ? styles.fullHeight : {},
-      noPaddingBottom ? styles.noPaddingBottom : {},
-      dismissible ? styles.dismissible : {}
-    ];
+      fullWidth && styles.fullWidth,
+      fullHeight && styles.fullHeight,
+      noPaddingBottom && styles.noPaddingBottom,
+      dismissible && styles.dismissible
+    );
 
-    const headingClass: CSSPropertiesRecursive = [
+    const headingClass = css(
       styles.headingContainer,
-      mobileTitleHidden ? styles.hidden : {}
-    ];
+      mobileTitleHidden && styles.hidden,
+    );
 
-    const contentClass: CSSPropertiesRecursive = [
+    const contentClass = css(
       styles.content,
-      fullWidth ? styles.fullWidth : {},
-      fullHeight ? styles.fullHeight : {},
-    ]
+      fullWidth && styles.fullWidth,
+      fullHeight && styles.fullHeight,
+    );
 
-    const footerClass: CSSPropertiesRecursive = [
+    const footerClass = css(
       styles.footerContainer,
-      isBottom ? styles.extraMarginBottom : {}
-    ]
+      isBottom && styles.extraMarginBottom,
+    );
 
     return (
       <>
-        <Div css={cardContainer} style={{ height: this.state.height }}>
-          <Div css={card} {...otherProps} innerRef={(ref: HTMLDivElement) => { this.cardRef = ref }}>
+        <Div css={cardContainer} style={{ height: this.state.height }} {...otherProps}>
+          <Div css={card} innerRef={(ref: HTMLDivElement) => { this.cardRef = ref }}>
             {dismissible &&
               <Button css={styles.dismissCardButton} onClick={this.onHide}>
                 <CloseIcon fill={Colors.SkBlue} />
@@ -114,14 +116,14 @@ class Card extends React.Component<CardProps, CardState> {
               <>
                 <Div css={headingClass}>
                   {title &&
-                    <H2 css={styles.heading}>
-                      <div dangerouslySetInnerHTML={{ __html: title }} />
-                    </H2>
+                    <Heading css={styles.heading}>
+                      {title}
+                    </Heading>
                   }
                   {subtitle &&
-                    <H3 css={styles.subheading}>
-                      <div>{subtitle}</div>
-                    </H3>
+                    <Subheading css={styles.subheading}>
+                      {subtitle}
+                    </Subheading>
                   }
                 </Div>
                 <span key="spacer" />

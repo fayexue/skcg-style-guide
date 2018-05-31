@@ -1,0 +1,143 @@
+// Hero
+$hero-type-scale: 2.6rem;
+$hero-desktop-type-scale: 4.2rem;
+
+// h1
+$h1-type-scale: 2.1rem;
+$h1-desktop-type-scale: 3.6rem;
+
+// h2
+$h2-type-scale: 1.8rem;
+$h2-desktop-type-scale: 3rem;
+
+// h3
+$h3-type-scale: 1.6rem;
+$h3-desktop-type-scale: 2.8rem;
+
+// h4
+$h4-desktop-type-scale: 2.2rem;
+
+// Standard
+$standard-type-scale: 1.6rem;
+$standard-desktop-type-scale: 1.8rem;
+$standard-line-height: 1.4;
+
+// Font weight
+$sk-bold: 500;
+
+// New hotness
+
+$heading-desktop-type-scale: 2.6rem;
+$heading-desktop-line-height: 1.3;
+
+$heading-mobile-type-scale: 2.1rem;
+$heading-mobile-line-height: 1.3;
+
+$content-desktop-type-scale: 1.6rem;
+$content-desktop-line-height: 1.4;
+
+$content-mobile-type-scale: 1.6rem;
+$content-mobile-line-height: 1.4;
+
+$section-heading-desktop-type-scale: 2.4rem;
+$section-heading-desktop-line-height: 1.6;
+
+$section-heading-mobile-type-scale: 2.1rem;
+$section-heading-mobile-line-height: 1.3;
+
+$section-subheading-desktop-type-scale: 1.6rem;
+$section-subheading-desktop-line-height: 1.3;
+
+$section-subheading-mobile-type-scale: 1.6rem;
+$section-subheading-mobile-line-height: 1.4;
+
+$list-heading-desktop-type-scale: 1.8rem;
+$list-heading-desktop-line-height: 1.2;
+
+$list-heading-mobile-type-scale: 1.8rem;
+$list-heading-mobile-line-height: 1.2;
+
+$detail-desktop-type-scale-large: 1.4rem;
+$detail-desktop-type-scale-medium: 1.3rem;
+$detail-desktop-type-scale-small: 1.2rem;
+$detail-desktop-line-height: 1.2;
+
+$detail-mobile-type-scale-large: 1.5rem;
+$detail-mobile-type-scale-medium: 1.4rem;
+$detail-mobile-type-scale-small: 1.2rem;
+$detail-mobile-line-height: 1.2;
+
+@mixin headingDesktop() {
+  font-size: $heading-desktop-type-scale;
+  line-height: $heading-desktop-line-height;
+  letter-spacing: -0.6px;
+}
+
+@mixin headingMobile() {
+  font-size: $heading-mobile-type-scale;
+  line-height: $heading-mobile-line-height;
+  font-weight: $sk-bold;
+}
+
+@mixin sectionHeadingDesktop() {
+  font-size: $section-heading-desktop-type-scale;
+  line-height: $section-heading-desktop-line-height;
+}
+
+@mixin sectionHeadingMobile() {
+  font-size: $section-heading-mobile-type-scale;
+  line-height: $section-heading-mobile-line-height;
+}
+
+@mixin sectionSubheadingDesktop() {
+  font-size: $section-subheading-desktop-type-scale;
+  line-height: $section-subheading-desktop-line-height;
+}
+
+@mixin sectionSubheadingMobile() {
+  font-size: $section-subheading-mobile-type-scale;
+  line-height: $section-subheading-mobile-line-height;
+}
+
+@mixin listHeadingDesktop() {
+  font-size: $list-heading-desktop-type-scale;
+  line-height: $list-heading-desktop-line-height;
+  letter-spacing: -0.02rem;
+  font-weight: $sk-bold;
+}
+
+@mixin listHeadingMobile() {
+  font-size: $list-heading-mobile-type-scale;
+  line-height: $list-heading-mobile-line-height;
+  letter-spacing: -0.02rem;
+  font-weight: $sk-bold;
+}
+
+@mixin contentDesktop() {
+  font-size: $content-desktop-type-scale;
+  line-height: $content-desktop-line-height;
+}
+
+@mixin contentMobile() {
+  font-size: $content-mobile-type-scale;
+  line-height: $content-mobile-line-height;
+}
+
+@mixin contentDetailDesktop() {
+  font-size: $detail-desktop-type-scale-large;
+  line-height: $detail-desktop-line-height;
+}
+
+@mixin contentDetailMobile() {
+  font-size: $detail-mobile-type-scale-medium;
+  line-height: $detail-mobile-line-height;
+}
+
+@mixin link() {
+  color: #06c;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

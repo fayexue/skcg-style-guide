@@ -1,0 +1,88 @@
+@import './type.scss';
+
+//
+// Typography
+// ========================================================================
+$font-family-base: Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
+$font-family-din-web: Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
+$font-family-din-medium: Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
+
+//
+// Layout
+// ========================================================================
+$max-content-width: 990px;
+
+//
+// Media queries breakpoints
+// ========================================================================
+
+// Applies to all styles up to the max-width
+$screen-xs-max: 'max-width: 479px';  // Extra small screen / phone
+$screen-sm-max: 'max-width: 767px';  // Small screen / tablet
+$screen-md-max: 'max-width: 991px';  // Medium screen / desktop
+$screen-lg-max: 'max-width: 1199px'; // Large screen / wide desktop
+
+// Applies to all styles below the min-width
+$screen-xs-min: 'min-width: 480px';  // Extra small screen / phone
+$screen-sm-min: 'min-width: 768px';  // Small screen / tablet
+$screen-md-min: 'min-width: 992px';  // Medium screen / desktop
+$screen-lg-min: 'min-width: 1200px'; // Large screen / wide desktop
+
+// Seek base colours
+$sk-blue: #0d3880;
+$sk-pink: #e60278;
+$sk-commercial: #00a9e0;
+$sk-volunteer: $sk-pink;
+
+// Seek Learning green colours
+$sk-green: #3fa833;
+$sk-green-hover: #349828;
+$sk-green-medium: #3a9c2f;
+$sk-green-dark: #28871c;
+
+// Seek element colours
+$sk-link: $sk-blue;
+$sk-focus: #82afd5;
+$sk-dim: #121a21;
+$sk-hero-background: #d5d2cb;
+
+// Seek Learning greys
+$sk-black: #212121;
+$sk-grey-dark: #464646;
+$sk-grey: #6c6c6c;
+
+$sk-grey-placeholder: #7e7e7e;
+$sk-grey-spanish: #989898;
+$sk-grey-again: #e1e1e1;
+$sk-grey-middle: #bbb;
+$sk-grey-middle-medium: #ccc; // seriously, pick a grey.
+$sk-grey-medium: #ddd;
+$sk-grey-light: #efefef;
+$sk-grey-lighter: #d6d6d6;
+$sk-grey-warm: #777;
+$sk-grey-lightest: #f5f5f5;
+$sk-white: #fff;
+$sk-mid-gray-light: #d6d6d6;
+$sk-gray-light: #eee;
+
+// Career Guide styles
+$sk-charcoal: #404040;
+$skcg-grape: #5c2261;
+$skcg-turq: #00aab2;
+$skcg-blue: #06c;
+$skcg-highlight: #1d9ede;
+$skcr-blue: #00aef2;
+
+// Other colours
+$sk-promo-beta: #3460b7;
+
+// Grid
+$grid-row-height: 10px;
+$grid-gutter-width: 15px;
+$grid-column-width: 60px;
+$grid-container-width: 990px;
+$grid-content-width: 800px;
+$grid-container-margin: 25px;
+
+// rounded corners
+$border-radius: 0.2rem;
