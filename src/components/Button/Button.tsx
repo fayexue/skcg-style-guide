@@ -8,7 +8,7 @@ interface Props {
   readonly ghost?: boolean
 }
 
-export const Button = glamorous.button<Props>(
+const Button = glamorous.button<Props>(
   ({ secondary = false, ghost = false }) => {
     const color = secondary ? Colors.SkcgGrape : Colors.SkBlue;
     const backgroundColor = ghost ? Colors.SkWhite : color;
@@ -54,4 +54,6 @@ export const Button = glamorous.button<Props>(
       }
     }
   }
-)
+);
+
+export default Button;

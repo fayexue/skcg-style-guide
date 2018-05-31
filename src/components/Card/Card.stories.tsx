@@ -1,84 +1,25 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Card } from './Card';
-import { Content } from '../demo/Content';
-import { action } from '@storybook/addon-actions';
+import Card from './Card';
+import { DummyContent } from '../demo/DummyContent';
+import { withInfo } from "@storybook/addon-info";
+import { withKnobs, text, boolean } from '@storybook/addon-knobs/react';
 
 storiesOf('ui/Card', module)
-  .add('Card', () =>
-    <>
-      <Card
-        title="How do Taxation Accountants rate their role?"
-        subtitle="Latest reviews from 22 Taxation Accountants surveyed on SEEK"
-      >
-        <Content>Card content area</Content>
-      </Card>
-    </>
-  )
-  .add('Dismissable card', () =>
-    <>
-      <Card
-        title="How do Taxation Accountants rate their role?"
-        subtitle="Latest reviews from 22 Taxation Accountants surveyed on SEEK"
-        dismissible
-        onClose={action('Close card')}
-      >
-        <Content>Card content area</Content>
-      </Card>
-    </>
-  )
-  .add('Full width card', () =>
-    <>
-      <Card
-        title="How do Taxation Accountants rate their role?"
-        subtitle="Latest reviews from 22 Taxation Accountants surveyed on SEEK"
-        fullWidth
-      >
-        <Content>Card content area</Content>
-      </Card>
-    </>
-  )
-  .add('Full height card', () =>
-    <>
-      <Card
-        title="How do Taxation Accountants rate their role?"
-        subtitle="Latest reviews from 22 Taxation Accountants surveyed on SEEK"
-        fullHeight
-      >
-        <Content>Card content area</Content>
-      </Card>
-    </>
-  )
-  .add('No padding bottom card', () =>
-    <>
-      <Card
-        title="How do Taxation Accountants rate their role?"
-        subtitle="Latest reviews from 22 Taxation Accountants surveyed on SEEK"
-        noPaddingBottom
-      >
-        <Content>Card content area</Content>
-      </Card>
-    </>
-  )
-  .add('No margin top card', () =>
-    <>
-      <Card
-        title="How do Taxation Accountants rate their role?"
-        subtitle="Latest reviews from 22 Taxation Accountants surveyed on SEEK"
-        noMarginTop
-      >
-        <Content>Card content area</Content>
-      </Card>
-    </>
-  )
-  .add('Card with footer', () =>
-    <>
-      <Card
-        title="How do Taxation Accountants rate their role?"
-        subtitle="Latest reviews from 22 Taxation Accountants surveyed on SEEK"
-        footer="footer information"
-      >
-        <Content>Card content area</Content>
-      </Card>
-    </>
-  )
+  .addDecorator(withKnobs)
+  .add('Card', withInfo()(() =>
+    <Card
+      title={text('Title', 'How do Taxation Accountants rate their role?')}
+      subtitle={text('Subtitle', 'Latest reviews from 22 Taxation Accountants surveyed on SEEK')}
+      mobileTitleHidden={boolean('Hide mobile title', false)}
+      footer={text('Footer text', undefined)}
+      fullWidth={boolean('Full width', false)}
+      fullHeight={boolean('Full height', false)}
+      noPaddingBottom={boolean('No Padding Bottom', false)}
+      noMarginTop={boolean('No Margin Top', false)}
+      isBottom={boolean('Is bottom card', false)}
+      dismissible={boolean('Dissmissible card?', false)}
+    >
+      <DummyContent>Card content area</DummyContent>
+    </Card>
+  ))

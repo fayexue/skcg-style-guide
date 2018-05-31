@@ -1,8 +1,8 @@
 {
-  "name": "test-20180321",
+  "name": "skcg-style-guide",
   "version": "1.0.0",
   "private": true,
-  "description": "Technical test",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "lint": "yarn run tslint \"src/**/*.ts\"",
@@ -10,12 +10,17 @@
     "tslint": "tslint",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "rm -rf build && tsc",
+    "prepare": "yarn lint && yarn build"
   },
   "license": "MIT",
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.6",
+    "@storybook/addon-info": "^3.4.6",
+    "@storybook/addon-knobs": "^3.4.6",
     "@storybook/addon-links": "^3.4.6",
+    "@storybook/addon-viewport": "^3.4.6",
     "@storybook/addons": "^3.4.6",
     "@storybook/react": "^3.4.6",
     "@types/react": "16.0.18",
@@ -26,6 +31,8 @@
     "awesome-typescript-loader": "^3.2.3",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
+    "react-docgen-typescript-loader": "^2.1.0",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "rimraf": "^2.6.2",
     "tslint": "^5.7.0",
     "tslint-immutable": "^4.2.0",

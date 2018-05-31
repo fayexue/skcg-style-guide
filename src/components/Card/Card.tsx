@@ -24,7 +24,7 @@ interface CardState {
   readonly height: number | undefined
 }
 
-export class Card extends React.Component<CardProps, CardState> {
+class Card extends React.Component<CardProps, CardState> {
   private cardRef: HTMLDivElement | null = null;
 
   constructor(props) {
@@ -144,7 +144,7 @@ export class Card extends React.Component<CardProps, CardState> {
 
       </>
     )
-
   }
-
 };
+
+export default Card;

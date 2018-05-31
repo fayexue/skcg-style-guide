@@ -6,7 +6,7 @@ interface Props {
   readonly height?: number
 }
 
-export const Content = glamorous.div<Props>(
+export const DummyContent = glamorous.div<Props>(
   ({ height }) => {
     return {
       display: 'flex',
@@ -17,4 +17,4 @@ export const Content = glamorous.div<Props>(
       backgroundColor: lighten(0.6, Colors.SkBlue)
     }
   }
-)
+);
