@@ -3,6 +3,7 @@ import glamorous, { Div } from 'glamorous';
 
 export const Row = glamorous.div({
   display: 'flex',
+  flexWrap: 'wrap',
   justifyContent: 'space-between',
   alignItems: 'stretch',
   margin: '-1rem'

@@ -8,7 +8,7 @@ export const Fonts = {
   Size: {
       // Hero
       Hero: '2.6rem',
-      HeroDesktop: '4.2rem',
+      HeroDesktop: '4rem',
       // H1
       H1: '2.1rem',
       H1Desktop: '3.6rem',

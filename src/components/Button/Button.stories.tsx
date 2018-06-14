@@ -8,7 +8,7 @@ import Button from './Button';
 
 storiesOf('ui', module)
   .addDecorator(withKnobs)
-  .add('buttons', withInfo()(() =>
+  .add('Button', withInfo()(() =>
     <Button
       secondary={boolean('Secondary', false)}
       ghost={boolean('Ghost', false)}

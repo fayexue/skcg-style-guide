@@ -9,6 +9,7 @@
     "lint": "tslint -c tslint.json --project tsconfig.json",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
     "storybook": "start-storybook -p 6006",
+    "storybook:prod": "NODE_ENV=production start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "rm -rf ./lib && tsc",
     "prepare": "yarn lint && yarn build"
