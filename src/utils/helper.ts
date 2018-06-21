@@ -1,4 +1,4 @@
-interface CssUnit {
+export interface CssUnit {
   readonly dimention: number
   readonly unit: string
 }

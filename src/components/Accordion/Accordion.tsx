@@ -15,7 +15,7 @@ export interface AccordionProps {
   closedContent?: React.ReactNode,
 }
 
-interface AccordionState {
+export interface AccordionState {
   isCollapsed: boolean
   height: number | undefined
 }

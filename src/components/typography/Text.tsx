@@ -3,7 +3,8 @@ import { Div } from "glamorous";
 import { css } from "glamor";
 import styles from './textStyles';
 import { Types } from '../../styles/Types';
-interface Props extends React.HTMLProps<HTMLDivElement> {
+
+export interface TextProps extends React.HTMLProps<HTMLDivElement> {
   // typography
   hero?: boolean
   heading?: boolean
@@ -18,7 +19,7 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   isLast?: boolean
 }
 
-const Text = (props: Props) => {
+const Text = (props: TextProps) => {
   const {
     hero,
     heading,

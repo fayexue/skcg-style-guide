@@ -1,8 +1,9 @@
 {
   "name": "skcg-style-guide",
-  "version": "1.0.12",
+  "version": "1.0.3",
   "description": "test",
   "main": "./lib/index.js",
+  "types":"./lib/index.d.ts",
   "scripts": {
     "rimraf": "rimraf",
     "tslint": "tslint",
@@ -12,7 +13,8 @@
     "storybook:prod": "NODE_ENV=production start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "rm -rf ./lib && tsc",
-    "prepare": "yarn lint && yarn build"
+    "prepare": "yarn lint && yarn build",
+    "pack": "pack-zip"
   },
   "license": "MIT",
   "devDependencies": {
@@ -31,6 +33,7 @@
     "awesome-typescript-loader": "^3.2.3",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
+    "pack-zip": "^0.2.2",
     "react-docgen-typescript-loader": "^2.1.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "rimraf": "^2.6.2",
@@ -42,14 +45,14 @@
     "webpack-hot-middleware": "^2.19.1"
   },
   "dependencies": {
-    "date-fns": "^1.28.5",
-    "glamor": "^2.20.40",
-    "glamorous": "^4.13.0",
-    "global": "^4.3.2",
-    "history": "^4.7.2",
-    "polished": "^1.9.2",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "date-fns": "1.28.5",
+    "glamor": "2.20.40",
+    "glamorous": "4.13.0",
+    "global": "4.3.2",
+    "history": "4.7.2",
+    "polished": "1.9.2",
+    "react": "16.4.0",
+    "react-dom": "16.4.0"
   },
   "directories": {
     "lib": "lib"

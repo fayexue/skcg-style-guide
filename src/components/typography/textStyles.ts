@@ -1,12 +1,12 @@
 import { Colors } from './../../styles/Colors';
 import { Fonts } from './../../styles/Fonts';
 import { Types } from "../../styles/Types";
-import { css } from "glamor";
+import { css, StyleAttribute } from "glamor";
 import { MediaQueries } from "../../styles/MediaQueries";
 import { multiply } from '../../utils/helper';
 import { Layout } from '../../styles/Layout';
 
-const hero = css({
+const hero: StyleAttribute = css({
   fontSize: Fonts.Size.H1Desktop,
   fontWeight: Fonts.Weight.Normal,
   lineHeight: 1.2,
@@ -16,34 +16,34 @@ const hero = css({
   }
 })
 
-const heading = css({
+const heading: StyleAttribute = css({
   ...Types.HeadingDesktop,
   [MediaQueries.XsMax]: {
     ...Types.HeadingMobile
   }
 })
 
-const subheading = css({
+const subheading: StyleAttribute = css({
   ...Types.Content
 });
 
-const small = css({
+const small: StyleAttribute = css({
   ...Types.ContentDetail
 })
 
-const strong = css({
+const strong: StyleAttribute = css({
   fontWeight: Fonts.Weight.Bold
 })
 
-const info = css({
+const info: StyleAttribute = css({
   color: Colors.SkcgBlue
 })
 
-const critical = css({
+const critical: StyleAttribute = css({
   color: Colors.SkcgGrape
 })
 
-const extraMargin = css({
+const extraMargin: StyleAttribute = css({
   marginBottom: multiply(Layout.GridRowHeight, 2)
 })
 

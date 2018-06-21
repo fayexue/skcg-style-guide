@@ -5,10 +5,10 @@ import { CloseIcon } from '../../assets/CloseIcon';
 import { Colors } from '../../styles/Colors';
 import styles from './cardStyles';
 import { InfoIcon } from '../../assets/InfoIcon';
-import { Heading } from '../typography/Heading';
-import { Subheading } from '../typography/Subheading';
+import Heading from '../typography/Heading';
+import Subheading from '../typography/Subheading';
 
-interface CardProps extends React.HTMLProps<HTMLDivElement> {
+export interface CardProps extends React.HTMLProps<HTMLDivElement> {
   readonly title?: string,
   readonly subtitle?: string | React.ReactNode,
   readonly mobileTitleHidden?: boolean,
@@ -22,14 +22,14 @@ interface CardProps extends React.HTMLProps<HTMLDivElement> {
   onClose?(): void,
 }
 
-interface CardState {
+export interface CardState {
   readonly height: number | undefined
 }
 
 class Card extends React.Component<CardProps, CardState> {
   private cardRef: HTMLDivElement | null = null;
 
-  constructor(props) {
+  constructor(props: CardProps) {
     super(props);
     this.state = { height: undefined };
   }
@@ -38,7 +38,7 @@ class Card extends React.Component<CardProps, CardState> {
     this.getCardHeight();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: CardProps) {
     if (nextProps !== this.props) {
       this.getCardHeight();
     }

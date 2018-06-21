@@ -4,6 +4,7 @@
         "target": "es5",
         "jsx": "react",
         "module": "commonjs",
+        "declaration": true,
         "moduleResolution": "node",
 
         "strict": true,
@@ -21,7 +22,7 @@
         ],
         "typeRoots": [
             "index.d.ts",
-            "./node_modules/@types"
+            "node_modules/@types"
         ],
         "plugins": [{
             "name": "tslint-language-service"
@@ -38,6 +39,8 @@
     "exclude": [
         "dist",
         "build",
-        "node_modules"
+        "node_modules",
+        "./src/**/*.stories.tsx",
+        "./src/components/demo/"
     ]
 }

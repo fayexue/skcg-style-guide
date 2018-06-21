@@ -1,4 +1,4 @@
-import { keyframes, css } from 'glamor';
+import { keyframes, css, StyleAttribute } from 'glamor';
 import { multiply, add } from '../../utils/helper';
 import { Layout } from '../../styles/Layout';
 import { Colors } from '../../styles/Colors';
@@ -8,7 +8,7 @@ import { Fonts } from '../../styles/Fonts';
 const cardContainerMargin = multiply(Layout.GridRowHeight, 3.2);
 const cardContainerMarginMobile = multiply(Layout.GridRowHeight, 2.5);
 
-const cardContainer = css({
+const cardContainer: StyleAttribute = css({
   transition: 'height 0.5s ease-out',
   overflow: 'hidden',
   backgroundColor: Colors.SkWhite,
@@ -29,11 +29,11 @@ const cardContainer = css({
   }
 });
 
-const noMarginTop = css({
+const noMarginTop: StyleAttribute = css({
   marginTop: 0,
 });
 
-const card = css({
+const card: StyleAttribute = css({
   paddingTop: multiply(Layout.GridRowHeight, 4),
   paddingBottom: multiply(Layout.GridRowHeight, 5),
 
@@ -43,26 +43,26 @@ const card = css({
   },
 });
 
-const dismissible = css({
+const dismissible: StyleAttribute = css({
   position: 'relative',
 });
 
-const fullWidth = css({
+const fullWidth: StyleAttribute = css({
   maxWidth: 'inherit',
   paddingLeft: 0,
   paddingRight: 0,
 });
 
-const fullHeight = css({
+const fullHeight: StyleAttribute = css({
   paddingTop: 0,
   paddingBottom: 0,
 });
 
-const noPaddingBottom = css({
+const noPaddingBottom: StyleAttribute = css({
   paddingBottom: 0,
 });
 
-const dismissCardButton = css({
+const dismissCardButton: StyleAttribute = css({
   position: 'absolute',
   top: Layout.GridRowHeight,
   right: Layout.GridGutterWidth,
@@ -82,7 +82,7 @@ const dismissCardButton = css({
   lineHeight: 1
 });
 
-const headingContainer = css({
+const headingContainer: StyleAttribute = css({
   padding: `0 0 ${multiply(Layout.GridRowHeight, 3.5)}`,
 
   [MediaQueries.XsMax]: {
@@ -91,7 +91,7 @@ const headingContainer = css({
   }
 });
 
-const heading = css({
+const heading: StyleAttribute = css({
   maxWidth: Layout.GridContentWidth,
   margin: '0 auto',
   padding: `0, ${Layout.GridGutterWidth}`,
@@ -106,7 +106,7 @@ const heading = css({
   }
 });
 
-const subheading = css({
+const subheading: StyleAttribute = css({
   maxWidth: Layout.GridContentWidth,
   margin: `${multiply(Layout.GridRowHeight, 3.5)} auto 0`,
 
@@ -116,7 +116,7 @@ const subheading = css({
   }
 });
 
-const content = css({
+const content: StyleAttribute = css({
   maxWidth: add(Layout.GridContentWidth, multiply(Layout.GridGutterWidth, 4)),
   margin: '0 auto',
 
@@ -125,7 +125,7 @@ const content = css({
   }
 });
 
-const footerContainer = css({
+const footerContainer: StyleAttribute = css({
   display: 'flex',
   maxWidth: Layout.GridContainerWidth,
   margin: `${multiply(Layout.GridRowHeight, -2)} auto -${Layout.GridRowHeight}`,
@@ -138,7 +138,7 @@ const footerContainer = css({
   }
 });
 
-const footer = css({
+const footer: StyleAttribute = css({
   fontSize: Fonts.Size.Detail,
   marginTop: 'auto',
   marginBottom: 'auto',
@@ -150,7 +150,7 @@ const footer = css({
   }
 });
 
-const extraMarginBottom = css({
+const extraMarginBottom: StyleAttribute = css({
   marginBottom: 70
 });
 
@@ -160,7 +160,7 @@ const info = css({
   paddingRight: '10px'
 });
 
-const hidden = css({
+const hidden: StyleAttribute = css({
   [MediaQueries.XsMax]: {
     display: 'none',
     visibility: 'hidden'
@@ -172,7 +172,7 @@ const fadeInLoading = keyframes({
   '100%': { opacity: 1 }
 });
 
-const skeleton = css({
+const skeleton: StyleAttribute = css({
   margin: `${multiply(Layout.GridRowHeight, 2)} 0`,
   animation: `${fadeInLoading} ease-in 1`,
   animationDuration: '0.25s',

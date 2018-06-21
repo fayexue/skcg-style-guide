@@ -10,8 +10,9 @@ storiesOf('ui', module)
   .addDecorator(withKnobs)
   .add('Button', withInfo()(() =>
     <Button
-      secondary={boolean('Secondary', false)}
-      ghost={boolean('Ghost', false)}
+      secondary={boolean('secondary', false)}
+      info={boolean('info', false)}
+      ghost={boolean('ghost', false)}
       onClick={action('clicked')}
     >
       {text('Button', 'Button text')}

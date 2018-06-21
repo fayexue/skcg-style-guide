@@ -1,16 +1,20 @@
-import glamorous from 'glamorous';
+import glamorous, { GlamorousComponent } from 'glamorous';
 import { lighten, darken } from 'polished';
 import { Colors } from '../../styles/Colors';
 import { Fonts } from '../../styles/Fonts';
 
-interface Props {
+export interface ButtonProps {
   readonly secondary?: boolean
+  readonly info?: boolean
   readonly ghost?: boolean
 }
 
-const Button = glamorous.button<Props>(
-  ({ secondary = false, ghost = false }) => {
-    const color = secondary ? Colors.SkcgGrape : Colors.SkBlue;
+export type ButtonInterface = GlamorousComponent<ButtonProps & React.HTMLProps<HTMLButtonElement>, ButtonProps>;
+
+const Button: ButtonInterface = glamorous.button<ButtonProps>(
+  ({ secondary = false, info = false, ghost = false }) => {
+    let color = secondary ? Colors.SkcgGrape : Colors.SkBlue;
+    color = info ? Colors.SkCommercial : color; 
     const backgroundColor = ghost ? Colors.SkWhite : color;
     const fontColor = ghost ? color : Colors.SkWhite;
     const border = ghost ? `1px solid ${color}` : '0';

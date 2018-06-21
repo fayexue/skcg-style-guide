@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Colors } from '../styles/Colors';
 
-interface Props {
+export interface InfoIconProps {
   readonly size?: number
   readonly fill?: Colors
 }
 
-export const InfoIcon = (props: Props) => {
+export const InfoIcon = (props: InfoIconProps) => {
   return (
     <svg x="0px" y="0px"
       width={props.size || 18}

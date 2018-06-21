@@ -1,9 +1,9 @@
 import { Layout } from './../../styles/Layout';
 import { Colors } from './../../styles/Colors';
 import { MediaQueries } from './../../styles/MediaQueries';
-import { css } from "glamor";
+import { css, StyleAttribute } from "glamor";
 
-const button = css({
+const button: StyleAttribute = css({
   appearance: "none",
   position: "relative",
   width: "100%",
@@ -27,20 +27,20 @@ const button = css({
   }
 });
 
-const icon = css({
+const icon: StyleAttribute = css({
   marginLeft: Layout.GridGutterWidth,
   transition: 'transform ease-out 0.16s',
 });
 
-const open = css({
+const open: StyleAttribute = css({
   transform: 'rotate(180deg)'
 });
 
-const accordion = css({
+const accordion: StyleAttribute = css({
   width: '100%'
 });
 
-const accordionContainer = css({
+const accordionContainer: StyleAttribute = css({
   transition: 'height 0.5s ease-out',
   overflow: 'hidden'
 });

@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from "@storybook/addon-info";
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import Text from './Text';
-import { Heading } from './Heading';
-import { Subheading } from './Subheading';
+import Heading from './Heading';
+import Subheading from './Subheading';
 
 storiesOf('typography', module)
   .addDecorator(withKnobs)

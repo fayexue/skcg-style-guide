@@ -1,12 +1,12 @@
-import glamorous from "glamorous";
+import glamorous, { GlamorousComponent } from "glamorous";
 import { Colors } from "../../styles/Colors";
 import { lighten } from "polished";
 
-interface Props {
+export interface DummyContentProps {
   readonly height?: number
 }
 
-export const DummyContent = glamorous.div<Props>(
+export const DummyContent: GlamorousComponent<DummyContentProps & React.HTMLProps<HTMLDivElement>, DummyContentProps> = glamorous.div<DummyContentProps>(
   ({ height }) => {
     return {
       display: 'flex',

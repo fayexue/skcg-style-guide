@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Colors } from '../styles/Colors';
 
-interface Props {
+export interface AccordionIconProps {
   readonly size?: number
   readonly fill?: Colors
 }
 
-export const AccordionIcon = (props: Props) => {
+export const AccordionIcon = (props: AccordionIconProps) => {
   return (
     <svg x="0px" y="0px"
       width={props.size || 18}

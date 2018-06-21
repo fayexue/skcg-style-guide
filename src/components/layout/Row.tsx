@@ -1,7 +1,9 @@
 import * as React from 'react'
-import glamorous, { Div } from 'glamorous';
+import glamorous, { Div, GlamorousComponent } from 'glamorous';
 
-export const Row = glamorous.div({
+export type RowInterface = GlamorousComponent<React.HTMLProps<HTMLDivElement>, {}>
+
+export const Row: RowInterface = glamorous.div({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
